@@ -1,0 +1,183 @@
+.edit-profile-container {
+    max-width: 500px;
+    margin: 34px auto;
+    padding: 30px 70px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-family: "GothicA1";
+}
+
+.edit-header {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.edit-header h2 {
+    font-size: 22px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+.edit-header .subtitle {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 공통 폼 스타일 */
+.edit-form .form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form label {
+    margin-bottom: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.edit-form input {
+    padding: 11px 13px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.edit-form input:focus {
+    border-color: #5d6dbe;
+}
+
+/* 프로필 사진 업로드 영역 */
+.input-with-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    width: 500px;
+}
+
+/* 파일 선택 input */
+.input-with-preview input[type="file"] {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 250px;
+
+    margin-left: 1px;
+}
+
+/* 미리보기 이미지 */
+.profile-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #5d6dbe;
+    flex-shrink: 0;
+}
+
+.reset-profile-btn {
+    padding: 10px 0px;
+    width: 130px;
+    height: 40px;
+    padding: 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.reset-profile-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 비밀번호 토글 */
+.input-with-btn {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-btn input {
+    flex: 1;
+}
+
+.toggle-pw {
+    margin-left: 10px;
+    font-size: 13px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100px;
+    padding: 10px 0;
+}
+
+.toggle-pw:hover {
+    background: #e0e0e0;
+}
+
+/* 버튼 영역 */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 10px 0.5px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    transition: 0.2s;
+    width: 100px;
+}
+
+.btn.primary {
+    background: #5d6dbe;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background: #4954a3;
+}
+
+.btn.cancel {
+    background: #ddd;
+    color: #333;
+}
+
+.btn.cancel:hover {
+    background: #bbb;
+}
+
+/* 비밀번호 메시지 */
+.password-message {
+    font-size: 13px;
+    color: #5d6dbe;
+    margin-top: 5px;
+}
+
+.success {
+    font-size: 13px;
+    color: green;
+    margin-top: 5px;
+}
+
+.error {
+    font-size: 13px;
+    color: red;
+    margin-top: 5px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>[{{appName}}] 이메일 인증을 완료해 주세요</title>
+    <meta name="x-apple-disable-message-reformatting">
+    <style>
+        @media (max-width:600px){ .container{width:100%!important} .content{padding:24px!important} .btn{width:100%!important}}
+    </style>
+</head>
+<body style="margin:0;padding:0;background:#F5F7FB;color:#1F2A44;">
+<!-- 프리헤더(클라이언트 미리보기용, 화면엔 숨김) -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+    {{appName}} 가입을 위한 이메일 인증 링크입니다. 24시간 이내에 인증해 주세요.
+</div>
+
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#F5F7FB;">
+    <tr>
+        <td align="center" style="padding:32px 16px;">
+            <table class="container" role="presentation" width="600" cellspacing="0" cellpadding="0" style="width:600px;max-width:600px;">
+                <!-- 헤더 -->
+                <tr>
+                    <td align="left" style="padding:8px 0 16px;">
+                        <img src="cid:careerfitLogo" alt="{{appName}} 로고" width="160" style="display:block;border:0;">
+                    </td>
+                </tr>
+
+                <!-- 카드 -->
+                <tr>
+                    <td>
+                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                               style="background:#FFFFFF;border:1px solid #E8ECF4;border-radius:14px;box-shadow:0 10px 30px rgba(17,24,39,.06);">
+                            <tr>
+                                <td class="content" style="padding:36px;">
+                                    <h1 style="margin:0 0 12px;font-size:22px;line-height:1.4;color:#1F2A44;">
+                                        이메일 인증을 완료해 주세요
+                                    </h1>
+                                    <p style="margin:0 0 18px;font-size:14px;line-height:1.8;color:#64748B;">
+                                        안녕하세요, {{displayName}} 님 👋<br>
+                                        {{appName}} 보안을 위해 이메일 주소 소유 확인이 필요합니다.<br>
+                                        아래 버튼을 눌러 인증을 완료해 주세요. 링크는 <b>24시간</b> 동안 유효합니다.
+                                    </p>
+
+                                    <!-- CTA 버튼 -->
+                                    <table role="presentation" cellspacing="0" cellpadding="0" style="margin:18px 0 8px;">
+                                        <tr>
+                                            <td>
+                                                <a href="{{verifyUrl}}" class="btn"
+                                                   style="background:linear-gradient(90deg,#5671F5,#6C8DFF);display:inline-block;padding:14px 22px;
+                                    color:#ffffff;text-decoration:none;font-weight:700;border-radius:10px;">
+                                                    이메일 주소 인증하기
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <p style="margin:18px 0 0;font-size:12px;color:#8A94A6;">
+                                        버튼이 동작하지 않으면 아래 주소를 브라우저에 복사해 붙여넣기 해주세요.<br>
+                                        <span style="word-break:break-all;color:#4B5563;">{{verifyUrl}}</span>
+                                    </p>
+
+                                    <hr style="border:none;border-top:1px solid #E8ECF4;margin:28px 0;">
+                                    <p style="margin:0;font-size:12px;color:#94A3B8;line-height:1.7;">
+                                        본 메일은 회원가입 요청에 따라 자동 발송되었습니다. 본인이 요청한 것이 아니라면 이 메일을 무시해 주세요.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- 풋터 -->
+                <tr>
+                    <td align="center" style="padding:18px 4px;color:#8A94A6;font-size:12px;">
+                        © {{year}} {{appName}}. All rights reserved.
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

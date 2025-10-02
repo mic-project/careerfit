@@ -1,0 +1,31 @@
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    height: 40px;
+    cursor: pointer; /* 로고에 마우스 올리면 포인터 표시 */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #5d6dbe;
+}

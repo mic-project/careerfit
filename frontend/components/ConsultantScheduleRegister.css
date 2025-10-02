@@ -1,0 +1,206 @@
+/* src/components/ConsultantScheduleRegister.css */
+
+/* 기본 컨테이너 */
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 20px;
+}
+
+.doc-feedback-header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.doc-feedback-header p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* 좌측 달력 */
+.booking-containerr {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1400px;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.calendarr {
+    flex: 1;
+    margin-left: 200px;
+}
+
+.year-month-selectt {
+    display: flex;
+    gap: 17px;
+    margin-bottom: 15px;
+}
+
+.year-month-selectt select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='12' height='8' xmlns='http://www.w3.org/2000/svg'><path d='M1 1l5 5 5-5' stroke='%235d6dbe' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    margin-top: 20px;
+}
+
+.year-month-selectt select:hover {
+    border-color: #5d6dbe;
+}
+
+.year-month-selectt select:focus {
+    outline: none;
+    border-color: #5d6dbe;
+    box-shadow: 0 0 0 3px rgba(93, 109, 190, 0.2);
+}
+
+.year-month-selectt select {
+    min-width: 120px;
+}
+
+/* 요일 & 날짜 */
+.weekdays-gridd {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekdayy {
+    text-align: center;
+    font-weight: 600;
+    color: #555;
+}
+
+.dates-gridd {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 10px;
+}
+
+.date-itemm {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.date-itemm.available:hover {
+    border: 1px solid #5d6dbe;
+    background-color: #f0f4ff;
+}
+
+.date-itemm.selected {
+    background-color: #5d6dbe;
+    color: white;
+    font-weight: bold;
+}
+
+.date-itemm.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 우측 시간 등록 */
+.time-selectionn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: -300px;
+}
+
+.time-selectionn h3 {
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.time-selectionn .time-select-wrapperr {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 1px;
+}
+
+.time-selectionn select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 15px 1px 12px 0;
+    font-size: 14px;
+    background-color: #fff;
+    appearance: none;
+    cursor: pointer;
+    width: 120px;
+}
+
+.confirm-btnn {
+    margin-top: -52px;
+    margin-left: 320px;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    background-color: #5d6dbe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s;
+    align-self: flex-start;
+}
+
+.confirm-btnn:hover {
+    background-color: #4b57a3;
+}
+
+/* 등록된 시간 리스트 */
+.time-selectionn ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.time-selectionn li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.delete-btnn {
+    background: #ff4d4f;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.delete-btnn:hover {
+    background: #d9363e;
+}

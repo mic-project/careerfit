@@ -1,0 +1,56 @@
+.schedule-container {
+    max-width: 500px;
+    margin: 34px auto;
+    padding: 30px 70px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-family: "GothicA1";
+}
+
+.schedule-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.schedule-container .subtitle {
+    color: #666;
+    font-size: 16px;
+    line-height: 0.5;
+    margin-bottom: 20px;
+    margin-left: 2px;
+}
+
+.rating-stars {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.star {
+    cursor: pointer;
+    color: #ccc;
+    margin-right: 5px;
+    transition: color 0.2s;
+}
+
+.star.filled {
+    color: #ffc107; /* 노란색 별 */
+}
+
+.btn.evaluatee {
+    background-color: #5d6dbe;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 90px;
+    margin-left: auto;
+    display: block;
+}
+
+.btn.evaluate:hover {
+    background-color: #4954a3;
+}

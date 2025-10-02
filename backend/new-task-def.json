@@ -1,0 +1,79 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "mic-project-app",
+      "image": "286810925507.dkr.ecr.ap-northeast-2.amazonaws.com/careerfit-backend:v20251001-111351",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "RDS_HOSTNAME",
+          "value": "micproject.cfr3nxvw3guk.ap-northeast-2.rds.amazonaws.com"
+        },
+        {
+          "name": "RDS_PORT",
+          "value": "3306"
+        },
+        {
+          "name": "DB_USER",
+          "value": "root"
+        },
+        {
+          "name": "SPRING_JPA_HIBERNATE_DDL_AUTO",
+          "value": "update"
+        },
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "prod"
+        },
+        {
+          "name": "REDIS_HOSTNAME",
+          "value": "localhost"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "micproject"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "1234"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "secrets": [
+        {
+          "name": "SPRING_APPLICATION_JSON",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/prod/credentials-zSQ9lK"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/mic-project-task-def-v2",
+          "awslogs-create-group": "true",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "mic-project-task-def-v2",
+  "executionRoleArn": "arn:aws:iam::286810925507:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024"
+}

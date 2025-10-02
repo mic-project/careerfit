@@ -1,0 +1,132 @@
+.mypage-container {
+    font-family: "GothicA1";
+    padding: 40px 400px;
+}
+
+.mypage-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 80px;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.emaill {
+    font-size: 14px;
+    color: #191919;
+    margin-top: 20px;
+}
+
+.edit-btn {
+    position: absolute;
+    right: 40px;
+    top: 0;
+    margin-top: 1px;
+    padding: 9px 23px;
+    background-color: #6f7ec6;
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn:hover {
+    background-color: rgb(169, 177, 220);
+    color: white;
+}
+
+.user-search-container {
+    border: 1px solid #e9e8e8;
+    border-radius: 12px;
+    padding: 30px 35px;
+    margin-top: 20px;
+    background-color: #f5f7fb;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.user-search-section {
+    margin-top: 30px;
+}
+
+.user-search-input {
+    width: 96.8%;
+    padding: 13px 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #c3c2c2;
+    font-size: 14px;
+}
+
+.user-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dcdada;
+}
+
+.toggle-consultant-btn {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 130px;
+}
+
+.toggle-consultant-btn.grant {
+    background-color: #4a90e2;
+}
+
+.toggle-consultant-btn.grant:hover {
+    background-color: #357ab8;
+}
+
+.toggle-consultant-btn.revoke {
+    background-color: #e24a4a;
+}
+
+.toggle-consultant-btn.revoke:hover {
+    background-color: #b83a3a;
+}

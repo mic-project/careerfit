@@ -1,0 +1,246 @@
+/* 기본 컨테이너 */
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 20px;
+}
+
+.doc-feedback-header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.doc-feedback-header p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* 좌측 컨설턴트 정보 박스 */
+.consultant-info-box {
+    flex: 0 0 400px;
+    border: 2px solid #5d6dbe;
+    border-radius: 10px;
+    padding: 22px;
+    padding-top: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 90px;
+    margin-top: 6px;
+    height: auto; /* 고정된 높이 제거 */
+    min-height: 100px;
+}
+
+.consultant-info-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* 공통 카드 스타일 */
+.consultant-card {
+    display: flex;
+    gap: 16px;
+}
+
+/* 👉 세로 배치(사진 아래에 정보) */
+.consultant-card.vertical {
+    flex-direction: column; /* 핵심 */
+    align-items: center; /* 사진/목록 가운데 정렬 */
+    text-align: left;
+}
+
+/* 프로필 이미지 */
+.consultant-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+}
+
+/* 정보 목록 */
+.consultant-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 420px;
+}
+.consultant-meta li {
+    margin: 6px 0;
+}
+.consultant-meta li.intro {
+    margin-top: 10px;
+    white-space: pre-line;
+}
+
+/* .consultant-info-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.consultant-info-box li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.consultant-info-box li strong {
+  color: #333;
+}
+
+.consultant-info-box li.intro {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+} */
+
+/* 예약 영역 */
+.booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1400px;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.time-selection h3 {
+    margin-bottom: 2px;
+}
+
+/* 좌측 달력 */
+.calendar {
+    flex: 1;
+    margin-left: -45px;
+}
+
+.year-month-select {
+    display: flex;
+    gap: 17px;
+    margin-bottom: 15px;
+}
+
+.year-month-select select,
+.time-selection select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 40px 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg width='12' height='8' xmlns='http://www.w3.org/2000/svg'><path d='M1 1l5 5 5-5' stroke='%235d6dbe' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    margin-top: 20px;
+}
+
+.year-month-select select:hover,
+.time-selection select:hover {
+    border-color: #5d6dbe;
+}
+
+.year-month-select select:focus,
+.time-selection select:focus {
+    outline: none;
+    border-color: #5d6dbe;
+    box-shadow: 0 0 0 3px rgba(93, 109, 190, 0.2);
+}
+
+/* 년도/월 드롭다운 넓이 */
+.year-month-select select {
+    min-width: 120px;
+}
+
+/* 날짜 그리드 */
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 10px;
+}
+
+.date-item {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+/* 요일 표시 */
+.weekdays-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: #555;
+}
+
+.date-item.available:hover {
+    border: 1px solid #5d6dbe;
+    background-color: #f0f4ff;
+}
+
+.date-item.selected {
+    background-color: #5d6dbe;
+    color: white;
+    font-weight: bold;
+}
+
+.date-item.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* 우측 시간 선택 */
+.time-selection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: -45px;
+}
+
+.time-selection select {
+    width: 60%;
+    margin-top: 18px;
+}
+
+/* 확인 버튼 */
+.confirm-btn {
+    margin-top: 300px;
+    padding: 15px 30px;
+    background-color: #5d6dbe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    display: block;
+    margin-left: auto;
+    font-size: 16px;
+}
+
+.confirm-btn:hover {
+    background-color: #4b57a3;
+}
+
+.empty-text {
+    margin-left: -45px;
+}

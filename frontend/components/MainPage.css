@@ -1,0 +1,120 @@
+/* 전체 컨테이너 */
+.home-container {
+    font-family: "GothicA1";
+    min-height: 100vh;
+    background-color: #f8f9fc;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 인사말 */
+.greeting {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 30px auto 40px auto;
+    text-align: center;
+    color: #333;
+}
+
+/* 메인 그리드 */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 2fr; /* 왼쪽 좁게, 오른쪽 넓게 */
+    gap: 30px;
+    width: 60%;
+    margin: 0 auto 65px;
+}
+
+/* 왼쪽 카드 묶음 */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* 오른쪽 큰 카드 */
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 카드 스타일 */
+.card {
+    background: white;
+    border-radius: 16px;
+    height: 250px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #acb8eb;
+    color: white;
+    cursor: pointer;
+}
+
+.card img {
+    max-width: 160px;
+    margin-top: 4.5px;
+    margin-bottom: 15px;
+}
+
+.card-text h3 {
+    font-size: 20px;
+    margin-bottom: px;
+    color: #222;
+}
+
+.card-text p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* 오른쪽 화상면접 카드 */
+.large-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.large-card img {
+    max-width: 250px;
+    margin-bottom: 18px;
+}
+
+.meeting-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.meeting-buttons button {
+    padding: 14px 70px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: #5d6dbe;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.meeting-buttons button:hover {
+    border: 2px solid #5d6dbe;
+    background-color: white;
+    color: #5d6dbe;
+}

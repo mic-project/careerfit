@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>비디오 테스트 페이지</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        video { width: 640px; height: 480px; border: 1px solid #ccc; margin: 10px 0; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        .test-btn { background-color: #007bff; color: white; }
+        .delete-btn { background-color: #dc3545; color: white; }
+        .refresh-btn { background-color: #28a745; color: white; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🎥 비디오 재생 테스트</h1>
+
+    <div class="test-section">
+        <h2>1. 녹화 목록 및 관리</h2>
+        <button class="refresh-btn" onclick="loadRecordings()">📋 목록 새로고침</button>
+        <button class="delete-btn" onclick="deleteAllRecordings()">🗑️ 모든 영상 삭제</button>
+        <div id="recordings-list">
+            <p>녹화 목록을 불러오는 중...</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. 비디오 재생 테스트</h2>
+        <div id="video-container">
+            <p>위 목록에서 비디오를 선택하세요.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. 디버그 정보</h2>
+        <pre id="debug-info">디버그 정보가 여기에 표시됩니다.</pre>
+    </div>
+
+    <script>
+        function log(message) {
+            console.log(message);
+            const debugInfo = document.getElementById('debug-info');
+            debugInfo.textContent += new Date().toLocaleTimeString() + ': ' + message + '\n';
+        }
+
+        async function loadRecordings() {
+            try {
+                log('📋 녹화 목록 로드 시작...');
+                const response = await fetch('/api/openvidu/recordings');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const recordings = await response.json();
+                log(`✅ ${recordings.length}개의 녹화 파일 발견`);
+
+                const listContainer = document.getElementById('recordings-list');
+                if (recordings.length === 0) {
+                    listContainer.innerHTML = '<p>녹화된 파일이 없습니다.</p>';
+                    return;
+                }
+
+                let html = '<h3>녹화 파일 목록:</h3>';
+                recordings.forEach((recording, index) => {
+                    const fileName = recording.key.split('/').pop();
+                    const fileSize = Math.round(recording.size / 1024) + ' KB';
+
+                    html += `
+                        <div style="margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                            <strong>${fileName}</strong> (${fileSize})
+                            <br>
+                            <small>URL: ${recording.url}</small>
+                            <br>
+                            <button class="test-btn" onclick="testVideo('${recording.url}', '${fileName}')">
+                                🎬 재생 테스트
+                            </button>
+                            <button class="test-btn" onclick="testVideoWithProxy('${recording.url}', '${fileName}')">
+                                🔄 프록시로 재생
+                            </button>
+                        </div>
+                    `;
+                });
+
+                listContainer.innerHTML = html;
+            } catch (error) {
+                log(`❌ 목록 로드 실패: ${error.message}`);
+            }
+        }
+
+        async function testVideo(videoUrl, fileName) {
+            try {
+                log(`🎬 직접 재생 테스트: ${fileName}`);
+                log(`📍 URL: ${videoUrl}`);
+
+                const videoContainer = document.getElementById('video-container');
+                videoContainer.innerHTML = `
+                    <h3>직접 재생: ${fileName}</h3>
+                    <video controls preload="auto" crossorigin="anonymous">
+                        <source src="${videoUrl}" type="video/mp4">
+                        <source src="${videoUrl}" type="video/webm">
+                        브라우저가 비디오를 지원하지 않습니다.
+                    </video>
+                    <br>
+                    <small>직접 S3 URL 사용</small>
+                `;
+
+                const video = videoContainer.querySelector('video');
+
+                video.addEventListener('loadstart', () => log('📥 비디오 로딩 시작'));
+                video.addEventListener('loadedmetadata', () => log('📊 메타데이터 로드 완료'));
+                video.addEventListener('loadeddata', () => log('📦 데이터 로드 완료'));
+                video.addEventListener('canplay', () => log('▶️ 재생 가능'));
+                video.addEventListener('error', (e) => {
+                    log(`❌ 비디오 오류: ${e.target.error?.message || '알 수 없는 오류'}`);
+                    log(`🔍 오류 코드: ${e.target.error?.code}`);
+                });
+
+            } catch (error) {
+                log(`❌ 재생 테스트 실패: ${error.message}`);
+            }
+        }
+
+        async function testVideoWithProxy(videoUrl, fileName) {
+            try {
+                log(`🔄 프록시 재생 테스트: ${fileName}`);
+
+                const proxyUrl = `/api/openvidu/recordings/video?url=${encodeURIComponent(videoUrl)}`;
+                log(`📍 프록시 URL: ${proxyUrl}`);
+
+                const videoContainer = document.getElementById('video-container');
+                videoContainer.innerHTML = `
+                    <h3>프록시 재생: ${fileName}</h3>
+                    <video controls preload="auto" crossorigin="anonymous">
+                        <source src="${proxyUrl}" type="video/mp4">
+                        브라우저가 비디오를 지원하지 않습니다.
+                    </video>
+                    <br>
+                    <small>백엔드 프록시 사용</small>
+                `;
+
+                const video = videoContainer.querySelector('video');
+
+                video.addEventListener('loadstart', () => log('📥 프록시 비디오 로딩 시작'));
+                video.addEventListener('loadedmetadata', () => log('📊 프록시 메타데이터 로드 완료'));
+                video.addEventListener('loadeddata', () => log('📦 프록시 데이터 로드 완료'));
+                video.addEventListener('canplay', () => log('▶️ 프록시 재생 가능'));
+                video.addEventListener('error', (e) => {
+                    log(`❌ 프록시 비디오 오류: ${e.target.error?.message || '알 수 없는 오류'}`);
+                    log(`🔍 프록시 오류 코드: ${e.target.error?.code}`);
+                });
+
+            } catch (error) {
+                log(`❌ 프록시 재생 테스트 실패: ${error.message}`);
+            }
+        }
+
+        async function deleteAllRecordings() {
+            if (!confirm('정말로 모든 녹화 영상을 삭제하시겠습니까?\n\n⚠️ 이 작업은 취소할 수 없습니다!')) {
+                return;
+            }
+
+            try {
+                log('🗑️ 모든 영상 삭제 요청...');
+                const response = await fetch('/api/openvidu/recordings/clear-all', {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    const message = await response.text();
+                    log(`✅ 삭제 성공: ${message}`);
+                    loadRecordings(); // 목록 새로고침
+                } else {
+                    const errorMessage = await response.text();
+                    log(`❌ 삭제 실패: ${errorMessage}`);
+                }
+            } catch (error) {
+                log(`❌ 삭제 요청 중 오류: ${error.message}`);
+            }
+        }
+
+        // 페이지 로드 시 자동으로 목록 로드
+        window.addEventListener('load', () => {
+            log('🚀 페이지 로드 완료, 녹화 목록 로드 시작');
+            loadRecordings();
+        });
+    </script>
+</body>
+</html>

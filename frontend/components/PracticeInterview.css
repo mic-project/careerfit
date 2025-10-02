@@ -1,0 +1,61 @@
+.interview-container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.video-feed {
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    border-radius: 10px;
+    background: black;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.record-btn {
+    padding: 13px 28px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.record-btn.start {
+    background-color: #4caf50;
+}
+
+.record-btn.stop {
+    background-color: #f44336;
+}
+
+.record-btn.next {
+    background-color: #5d6dbe;
+}
+
+.record-btn:hover {
+    opacity: 0.9;
+}

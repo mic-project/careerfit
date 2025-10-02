@@ -1,0 +1,108 @@
+{
+  "family": "mic-project-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::286810925507:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::286810925507:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "mic-project-container",
+      "image": "286810925507.dkr.ecr.ap-northeast-2.amazonaws.com/mic-project:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "SPRING_PROFILES_ACTIVE",
+          "value": "prod"
+        },
+        {
+          "name": "AWS_REGION",
+          "value": "ap-northeast-2"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DB_URL",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/database:url::"
+        },
+        {
+          "name": "DB_USERNAME",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/database:username::"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/database:password::"
+        },
+        {
+          "name": "AWS_ACCESS_KEY",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/aws:access-key::"
+        },
+        {
+          "name": "AWS_SECRET_KEY",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/aws:secret-key::"
+        },
+        {
+          "name": "JWT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/jwt:secret::"
+        },
+        {
+          "name": "GOOGLE_CLIENT_ID",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:google-client-id::"
+        },
+        {
+          "name": "GOOGLE_CLIENT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:google-client-secret::"
+        },
+        {
+          "name": "KAKAO_CLIENT_ID",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:kakao-client-id::"
+        },
+        {
+          "name": "KAKAO_CLIENT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:kakao-client-secret::"
+        },
+        {
+          "name": "NAVER_CLIENT_ID",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:naver-client-id::"
+        },
+        {
+          "name": "NAVER_CLIENT_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/oauth2:naver-client-secret::"
+        },
+        {
+          "name": "OPENVIDU_URL",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/openvidu:url::"
+        },
+        {
+          "name": "OPENVIDU_SECRET",
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:286810925507:secret:mic-project/openvidu:secret::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/mic-project-task-def-v2",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "curl -f http://localhost:8080/api/health || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      }
+    }
+  ]
+}

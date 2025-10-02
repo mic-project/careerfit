@@ -1,0 +1,108 @@
+.mypage-container {
+    font-family: "GothicA1";
+    padding: 40px 400px;
+}
+
+.mypage-container h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 80px;
+}
+
+.user-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.subscription a {
+    font-size: 15px;
+    color: #5d6dbe;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.emaill {
+    font-size: 14px;
+    color: #191919;
+    margin-top: 20px;
+}
+
+.edit-btn {
+    position: absolute;
+    right: 40px;
+    top: 0;
+    margin-top: 1px;
+    padding: 9px 23px;
+    background-color: #6f7ec6;
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn:hover {
+    background-color: rgb(169, 177, 220);
+    color: white;
+}
+
+.mypage-menu {
+    border: 2.5px solid #e5e5e5;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 22px;
+    font-size: 17px;
+    cursor: pointer;
+    border-bottom: 1px solid #e5e5e5;
+    transition: background 0.2s;
+    font-weight: bold;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background-color: rgb(169, 177, 220);
+    color: white;
+}
+
+.arrow {
+    font-weight: 600;
+}

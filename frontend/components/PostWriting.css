@@ -1,0 +1,71 @@
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+.nav-menu a.active {
+    color: #5d6dbe;
+    font-weight: bold;
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+.doc-feedback-header h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.doc-feedback-header p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* 글쓰기 폼 */
+.post-writing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-writing-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.post-writing-form input[type="text"],
+.post-writing-form textarea,
+.post-writing-form input[type="file"] {
+    margin-top: 8px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: "GothicA1";
+}
+
+.author-choice {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.submit-button {
+    padding: 12px 30px;
+    background-color: #5d6dbe;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #4b58a1;
+}

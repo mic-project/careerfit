@@ -1,0 +1,106 @@
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+.nav-menu a.active {
+    color: #5d6dbe; /* 🔹 강조 색 */
+    font-weight: bold; /* 글씨 굵게 */
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.doc-feedback-header h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.doc-feedback-header p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* 게시판 테이블 */
+.post-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.post-table th,
+.post-table td {
+    border-bottom: 2px solid #ddd;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.post-table th {
+    font-weight: 600;
+    color: #555;
+}
+
+.post-table td {
+    color: #333;
+}
+
+/* 페이지네이션 버튼 스타일 */ /* 🔹 추가/변경 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #555;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #5d6dbe;
+    color: white;
+    border-color: #5d6dbe;
+    font-weight: bold;
+}
+
+.pagination button:disabled {
+    cursor: default;
+    color: #323131;
+    border-color: #ddd;
+    background-color: #f5f5f5;
+}
+
+/* 글쓰기 버튼 위치 조정 */ /* 🔹 변경 */
+.write-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: -7px 30px 0px 1px;
+}
+
+.write-button {
+    padding: 13px 35px;
+    background-color: #5d6dbe;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background 0.2s;
+}
+
+.write-button:hover {
+    background-color: #4b58a1;
+}

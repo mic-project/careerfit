@@ -1,0 +1,158 @@
+.signup-wrapper {
+    min-height: 100vh;
+    max-height: 100vh; /* 추가 */
+    overflow-y: auto; /* 스크롤 허용 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.signup-container {
+    background: #f8f9fa;
+    padding: 50px;
+    width: 600px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main-header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.main-header img {
+    height: 40px;
+    cursor: pointer;
+}
+
+.signup-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-container label {
+    margin-bottom: 5px;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="password"],
+.signup-container input[type="email"],
+.signup-container input[type="date"] {
+    padding: 13px;
+    border: 2px solid #ddd;
+    border-radius: 7px;
+    font-size: 16px;
+    width: 450px;
+    margin-bottom: 8px;
+}
+
+/* 이메일 인증 영역 */
+.email-verify-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.email-section {
+    display: flex;
+    gap: 30px;
+    margin-top: 5px;
+    width: 610px;
+}
+
+.email-section input{
+    flex: 1;
+}
+
+/* 생년월일 date input 글씨체만 변경 */
+.signup-container input[type="date"] {
+    font-family: "GothicA1ExtraLight";
+    font-size: 16px;
+    color: #292929; /
+}
+
+/* ✅ 성별 버튼 스타일 */
+.gender-section {
+    display: flex;
+    gap: 30px;
+    margin-top: 5px;
+}
+
+.gender-section input[type="radio"] {
+    display: none; /* 기본 라디오 버튼 숨기기 */
+}
+
+.gender-section label {
+    padding: 11px 25px;
+    border: 2px solid #5d6dbe;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5d6dbe;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 선택된 버튼 */
+.gender-section input[type="radio"]:checked + label {
+    color: white;
+    border-color: #5d6dbe;
+    background-color: #5d6dbe;
+}
+
+.btn {
+    background-color: #5d6dbe;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 90px;
+    font-size: 16px !important;
+    margin-bottom: 6px;
+}
+
+.signup-btnn {
+    background-color: #5d6dbe;
+    color: white;
+    border: white !important;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.signup-btnn:hover{
+    background-color: #a0a3d9;
+    color: white;
+    border: white !important;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 1px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 1px;
+}

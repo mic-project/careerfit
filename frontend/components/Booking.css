@@ -1,0 +1,162 @@
+/* ===== 기본 컨테이너 ===== */
+.doc-feedback-container {
+    padding: 15px 50px;
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 20px;
+}
+.doc-feedback-header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.doc-feedback-header p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* 등급 설명 */
+.level-info {
+    margin-top: -10px;
+    margin-bottom: 26px;
+    padding: 1px 15px;
+    border-left: 4px solid #5d6dbe;
+    background: #f9f9ff;
+    font-size: 12px;
+}
+.level-info p {
+    margin: 1px 0;
+    font-weight: 500;
+}
+
+/* 리스트: 기본 3열 고정 */
+.experts-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ← 항상 3개 */
+    gap: 25px 0px; /* row/col 간격 */
+    margin: 30px 0 35px;
+    margin-left: 100px;
+}
+
+/* 카드 (배지 오버레이 위해 relative) */
+/* 카드는 너비를 그리드 칸에 맞춤 */
+/* 카드: 그리드 칸 너비를 그대로 사용 */
+.expert-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 360px; /* 칼럼 폭과 동일 */
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 14px;
+    background: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.expert-card:hover {
+    border-color: #5d6dbe;
+    box-shadow: 0 5px 10px rgba(93, 109, 190, 0.18);
+}
+.expert-card.selected {
+    border-color: #5d6dbe;
+    background: #f3f4fd;
+}
+
+/* 반응형: 화면이 줄면 2열 → 1열 */
+@media (max-width: 1180px) {
+    .experts-list {
+        grid-template-columns: repeat(2, 360px);
+    }
+}
+@media (max-width: 760px) {
+    .experts-list {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .expert-card {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+/* 좌측 프로필 썸네일 */
+.expert-thumb {
+    flex: 0 0 88px;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f6f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.expert-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 우측 상단 작은 등급 뱃지 */
+.tier-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+}
+.tier-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 정보 텍스트 */
+.expert-info {
+    flex: 1;
+    min-width: 0;
+}
+.expert-info p {
+    margin: 3px 0;
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+/* 상태 텍스트 */
+.loading,
+.error-text,
+.empty-text {
+    text-align: center;
+    padding: 24px 0;
+    color: #444;
+}
+.error-text {
+    color: #b42318;
+}
+
+/* 예약 버튼 */
+.booking-button-container {
+    text-align: right;
+}
+.booking-btn {
+    padding: 12px 22px;
+    background: #5d6dbe;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+.booking-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.booking-btn:not(:disabled):hover {
+    background: #4954a3;
+}

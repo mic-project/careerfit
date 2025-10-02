@@ -1,0 +1,175 @@
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+/* 상단 헤더 기존 스타일 */
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #5d6dbe;
+}
+
+/* 제목 + 설명 */
+.doc-feedback-header {
+    margin-bottom: 30px;
+}
+.doc-feedback-header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.doc-feedback-header p {
+    color: #555;
+    font-size: 13px;
+}
+
+/* 질문 선택 UI */
+.practice-containerr {
+    display: flex;
+    gap: 40px;
+    padding: 0px 40px;
+}
+
+/* 사이드바 */
+.sidebar {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.type-btn {
+    padding: 11px;
+    border: 2px solid #ccc;
+    background: #f8f8f8;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.type-btn.active,
+.type-btn:hover {
+    background: #5d6dbe;
+    color: white;
+    border-color: #5d6dbe;
+}
+
+/* 질문 리스트 */
+.questions-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.questions-header {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.questions-list {
+    flex: 1;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 15px;
+    background: #fff;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.question-item {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.question-item:hover {
+    background: #f0f6ff;
+}
+
+.question-item.selected {
+    background: #d4d8ee;
+    border-color: #ddd;
+}
+
+.question-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    border: 2px solid #555;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+}
+
+.question-item input[type="checkbox"]:checked::after {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.question-text {
+    flex: 1;
+}
+
+/* 하단 */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.start-btn {
+    padding: 13px 30px;
+    background: #5d6dbe;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.start-btn:hover {
+    background: #3f56a6;
+}

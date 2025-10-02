@@ -1,0 +1,79 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.teamB'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.awspring.cloud:spring-cloud-aws-dependencies:3.1.0"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // SMTP 이메일 인증
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // AWS S3 연동을 위한 의존성 추가
+    implementation platform('software.amazon.awssdk:bom:2.25.33')
+    implementation 'software.amazon.awssdk:s3'
+
+    // AWS Secrets Manager 연동을 위한 의존성 추가
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-secrets-manager'
+
+    // JWT (JSON Web Token)
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+
+    implementation 'io.openvidu:openvidu-java-client:2.31.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'io.lettuce:lettuce-core'
+
+    // WebClient (Spring WebFlux)
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // PDF 처리 (Apache PDFBox)
+    implementation 'org.apache.pdfbox:pdfbox:2.0.29'
+
+    // Word 문서 처리 (Apache POI)
+    implementation 'org.apache.poi:poi:5.2.4'
+    implementation 'org.apache.poi:poi-scratchpad:5.2.4'
+    implementation 'org.apache.poi:poi-ooxml:5.2.4'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

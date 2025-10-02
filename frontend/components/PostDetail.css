@@ -1,0 +1,78 @@
+/* 상세 페이지 컨테이너 */
+.post-detail-container {
+    padding: 30px 50px;
+    font-family: "GothicA1";
+}
+
+/* 뒤로가기 링크 */
+.back-link {
+    text-decoration: none;
+    color: #5d6dbe;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* 제목 */
+.post-detail-container h2 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+/* 메타 정보 */
+.post-meta {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* 게시글 내용 */
+.post-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ------------------------- */
+/* 상단 로고 + 메뉴 스타일 */
+/* ------------------------- */
+.doc-feedback-container {
+    font-family: "GothicA1";
+    padding: 15px 50px;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: #5d6dbe;
+}
+
+.nav-menu a.active {
+    color: #5d6dbe; /* 🔹 강조 색 */
+    font-weight: bold; /* 글씨 굵게 */
+}

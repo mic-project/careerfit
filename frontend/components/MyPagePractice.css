@@ -1,0 +1,110 @@
+.practice-container {
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 30px 70px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-family: "GothicA1";
+    flex-direction: column; /* h2 밑에 리스트가 무조건 세로로 */
+    align-items: center; /* 리스트는 가운데 정렬 */
+}
+
+.practice-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #333;
+
+    text-orientation: mixed;
+    display: block;
+    width: 100%;
+}
+
+.videos-list {
+    list-style: none;
+    padding: 0%;
+    margin: 10px 2px 3px 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+.video-item {
+    background: #fff;
+    border: 1.8px solid #ddd;
+    border-radius: 10px;
+    margin: 20px 0 15.5px 0;
+    padding: 20px 25px;
+    transition: border 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 720px;
+}
+
+.video-item:hover {
+    border: 1.8px solid #5d6dbe;
+    cursor: pointer;
+}
+
+.video-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.video-title-input {
+    font-size: 18px;
+    font-weight: 550;
+    border: none;
+    border-bottom: 1.7px solid #ccc;
+    outline: none;
+    flex: 1;
+}
+
+.video-title-input:focus {
+    border: 2px solid #5d6dbe;
+}
+
+.delete-button {
+    padding: 8px 16px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}
+
+.video-meta span {
+    margin-left: 1px;
+    font-size: 14px;
+    color: #555;
+}
+
+.video-player {
+    width: 100%;
+    max-height: 500px;
+    margin-top: 20px;
+    outline: none;
+}
